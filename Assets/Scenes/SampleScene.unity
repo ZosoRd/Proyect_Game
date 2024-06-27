@@ -585,6 +585,7 @@ MonoBehaviour:
   attackRange: 0.4
   attackCooldown: 0.5
   attackDamage: 40
+  maxComboDelay: 2
 --- !u!1 &1956553766
 GameObject:
   m_ObjectHideFlags: 0
