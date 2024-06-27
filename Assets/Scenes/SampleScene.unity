@@ -188,10 +188,10 @@ RectTransform:
   m_Father: {fileID: 1584798012}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 246, y: -147}
-  m_SizeDelta: {x: 202.39209, y: 28.970093}
-  m_Pivot: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -611.80396, y: -147}
+  m_SizeDelta: {x: -1717.6079, y: 28.970093}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &468988455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -926,6 +926,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 40
   healthBar: {fileID: 468988456}
+  animator: {fileID: 1539921934}
 --- !u!1 &1584798008
 GameObject:
   m_ObjectHideFlags: 0

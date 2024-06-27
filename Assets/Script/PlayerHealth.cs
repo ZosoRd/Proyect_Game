@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
 
     public HealthBar healthBar;
 
+    public Animator animator;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -21,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
         {
             TakeDamage(20);
             Debug.Log("daño");
+
         }
     }
 
@@ -29,5 +32,10 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= damage;
 
         healthBar.SetHealth(currentHealth);
+
+        if (animator != null)
+        {
+            animator.SetTrigger("TakeHit");
+        }
     }
 }
