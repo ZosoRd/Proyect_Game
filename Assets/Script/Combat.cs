@@ -10,7 +10,7 @@ public class Combat : MonoBehaviour
     public Transform attackPoint;
     public LayerMask enemyLayers;
 
-    public float attackCooldown = 1f; // Cooldown de 1 segundo entre ataques
+    public float attackCooldown = 1f; 
     private float lastAttackTime;
 
     void Update()
@@ -21,7 +21,7 @@ public class Combat : MonoBehaviour
                 if (Time.time - lastAttackTime >= attackCooldown)
                 {
                     Attack();
-                    lastAttackTime = Time.time; // Actualiza el tiempo del último ataque
+                    lastAttackTime = Time.time; 
                 }
             }
         }
