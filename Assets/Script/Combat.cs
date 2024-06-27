@@ -6,12 +6,13 @@ public class Combat : MonoBehaviour
 {
     public Animator animator;
 
-    public float attackRange = 0.5f;
     public Transform attackPoint;
     public LayerMask enemyLayers;
 
+    public float attackRange = 0.5f;
     public float attackCooldown = 1f; 
     private float lastAttackTime;
+    public int attackDamage = 40;
 
 
     private int comboState = 0; 
@@ -57,7 +58,7 @@ public class Combat : MonoBehaviour
 
         foreach(Collider2D enemy in hitEnemies)
         {
-            Debug.Log("hit");
+            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
         }
     }
 

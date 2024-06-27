@@ -578,12 +578,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1539921934}
-  attackRange: 0.4
   attackPoint: {fileID: 2065360968}
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
+  attackRange: 0.4
   attackCooldown: 0.5
+  attackDamage: 40
 --- !u!1 &1956553766
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,6 +597,7 @@ GameObject:
   - component: {fileID: 1956553769}
   - component: {fileID: 1956553768}
   - component: {fileID: 1956553767}
+  - component: {fileID: 1956553771}
   m_Layer: 6
   m_Name: Square (1)
   m_TagString: Enemy
@@ -742,6 +744,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1956553771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956553766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b718f2930a76cfe4a842fa013bab578f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &2065360967
 GameObject:
   m_ObjectHideFlags: 0
