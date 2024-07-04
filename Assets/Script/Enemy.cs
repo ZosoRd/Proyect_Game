@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 100;
     int currentHealth;
 
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -26,5 +27,6 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("Enemy died");
     }
+
 
 }
