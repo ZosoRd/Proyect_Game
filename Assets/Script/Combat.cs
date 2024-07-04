@@ -22,7 +22,6 @@ public class Combat : MonoBehaviour
     public float maxComboDelay = 1.5f;
     private float comboTimer;
 
-
     void Update()
     {
         comboTimer += Time.deltaTime;
@@ -73,7 +72,6 @@ public class Combat : MonoBehaviour
         foreach(Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
-
         }
     }
 
