@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; // Necesario para gestionar las escenas
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -8,13 +9,18 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
 
     public HealthBar healthBar;
-
     public Animator animator;
+
+    public string healthSaveKey = "PlayerHealth";
+
+    [SerializeField] GameOver gameOverScript;
 
     void Start()
     {
-        currentHealth = maxHealth;
+        // Cargar la vida guardada al inicio del juego, o usar el valor predeterminado
+        currentHealth = PlayerPrefs.GetInt(healthSaveKey, maxHealth);
         healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetHealth(currentHealth);
     }
 
     void Update()
@@ -23,7 +29,6 @@ public class PlayerHealth : MonoBehaviour
         {
             TakeDamage(20);
             Debug.Log("daño");
-
         }
     }
 
@@ -37,5 +42,32 @@ public class PlayerHealth : MonoBehaviour
         {
             animator.SetTrigger("TakeHit");
         }
+
+        if (currentHealth <= 0)
+        {
+            gameOverScript.ShowGameOverMenu();
+        }
+
+        // Guardar la vida actual en PlayerPrefs
+        PlayerPrefs.SetInt(healthSaveKey, currentHealth);
+        PlayerPrefs.Save(); // Asegurarse de guardar los datos inmediatamente
+    }
+
+    // Limpiar datos al salir del juego
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteKey(healthSaveKey); // Eliminar la clave al salir
+        PlayerPrefs.Save(); // Asegurarse de guardar los cambios
+    }
+
+    public void ResetPlayerHealth()
+    {
+        currentHealth = maxHealth;
+        healthBar.SetHealth(currentHealth);
+
+        // Guardar la vida reiniciada en PlayerPrefs
+        PlayerPrefs.SetInt(healthSaveKey, currentHealth);
+        PlayerPrefs.Save(); // Asegurarse de guardar los datos inmediatamente
     }
 }
+
