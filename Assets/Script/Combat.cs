@@ -75,6 +75,11 @@ public class Combat : MonoBehaviour
         }
     }
 
+    public void IncreaseAttackDamage(int increaseAmount)
+    {
+        attackDamage += increaseAmount; // Aumentar el daño del jugador
+    }
+
     void OnDrawGizmosSelected()
     {
         if (attackPoint == null)

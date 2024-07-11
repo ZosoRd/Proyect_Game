@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
         currentHealth = maxHealth;
         animator = GetComponent<Animator>(); // Obtener el componente Animator
 
+        EnemyManager.instance.RegisterEnemy(gameObject);
+
         // Iniciar con la animación de salud máxima (sprite original)
         if (animator != null)
         {
@@ -76,10 +78,21 @@ public class Enemy : MonoBehaviour
             animator.SetTrigger("Die"); // Activar trigger para animación de muerte
         }
 
-        Destroy(gameObject, 0.5f);
+        // Llamar al método del administrador de enemigos para eliminar este enemigo de la lista
+        EnemyManager.instance.UnregisterEnemy(gameObject);
 
-        // Aquí podrías agregar código adicional al morir, como desactivar el GameObject, reproducir efectos de sonido, etc.
-        // Ejemplo:
-        // gameObject.SetActive(false);
+        // Aumentar el daño del jugador por eliminar este enemigo
+        EnemyManager.instance.PlayerEliminatedEnemy();
+
+        StartCoroutine(DestroyAfterDelay(1f));
+
+    }
+
+    IEnumerator DestroyAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Destruir el GameObject
+        Destroy(gameObject);
     }
 }
