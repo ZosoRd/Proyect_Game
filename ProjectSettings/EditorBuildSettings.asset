@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hall.unity
     guid: e8970b70259bf8d47b60019c3340d829
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: a25891ce159be2041837208affb47803
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: b753b2e8f837cd34fb01c75014a37868
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: d789b2a6e7395a14cbf0aa2f2eb92ec6
   m_configObjects: {}
